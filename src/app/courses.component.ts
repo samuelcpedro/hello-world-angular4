@@ -9,11 +9,16 @@ import { Component } from "@angular/core";
 @Component({
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
-    template: '<h2>{{ "Title: " + title }}</h2><h3>{{ getTitle() }}</h3>' // its the html markup we want to be rendered for this component, it can be several lines of code, and it can be in a separate file
-    //{{ "Title: " + title }} this is called string interpolation
+    template: `
+        <h2>{{ title }}</h2>
+        <ul>
+            <li *ngFor="let course of courses">
+                {{ course }}
+            </li>
+        </ul>
+    ` // its the html markup we want to be rendered for this component, it can be several lines of code, and it can be in a separate file
 })
 export class CoursesComponent {
     title = "List of Courses";
-
-    getTitle(){ return this.title; }
+    courses = ["course1", "course2", "course3"];
 }
