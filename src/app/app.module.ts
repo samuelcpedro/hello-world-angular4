@@ -1,3 +1,4 @@
+import { CoursesService } from './courses.service';
 import { CoursesComponent } from './courses.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,18 @@ import { CourseComponent } from './course/course.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    CoursesService
+    /**
+     * Note1
+     *  Dependency Injection means injecting or providing the dependencies on class into its constructor.
+     * 
+     * Note2
+     * if we create a service, without mention in here we will get the error
+     * Unhandled Promise rejection: No provider for CoursesService! 
+     * 
+     */
+  ],//register all the depencies 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
