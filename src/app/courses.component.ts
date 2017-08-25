@@ -13,7 +13,6 @@ import { Component } from "@angular/core";
     template: `
         <button class="btn btn-primary" [class.active]="isActive">Save</button>
     `
-    //[class.active]="isActive" property binding syntaxe    `
     //[class.active]="isActive" property binding syntaxe
     //class -> class property
     //active -> name of the target class name 
@@ -22,5 +21,4 @@ import { Component } from "@angular/core";
 export class CoursesComponent {
     //isActive = false; //it will not show the class
     isActive = true; //it will show the class
-
 }
