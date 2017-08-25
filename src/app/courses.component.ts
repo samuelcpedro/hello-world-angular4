@@ -14,6 +14,8 @@ import { Component } from "@angular/core";
         <h2>{{ title }}</h2>
         <h2 [textContent]="title"></h2>
 
+        <button class="btn btn-primary">Save</button>
+
         <img src="{{ imageUrl }}" />
         <img [src]="imageUrl" />
 
