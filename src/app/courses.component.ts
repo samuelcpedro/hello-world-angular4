@@ -11,70 +11,16 @@ import { Component } from "@angular/core";
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
     template: `
-        <h2>{{ title }}</h2>
-        <h2 [textContent]="title"></h2>
-
-        <button class="btn btn-primary">Save</button>
-
-        <img src="{{ imageUrl }}" />
-        <img [src]="imageUrl" />
-
-        <table>
-            <tr>
-                <!-- it will give an error because we are not access an html atribute but a dom property atr ->
-                <!-- <td [colspan]="colSpan"></td> ->
-                <td [attr.colspan]="colSpan"></td>
-            </tr>
-        </table>
-
-        <ul>
-            <li *ngFor="let course of courses">
-                {{ course }}
-            </li>
-        </ul>
-    ` // its the html markup we want to be rendered for this component, it can be several lines of code, and it can be in a separate file
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    `
+    //[class.active]="isActive" property binding syntaxe    `
+    //[class.active]="isActive" property binding syntaxe
+    //class -> class property
+    //active -> name of the target class name 
 })
+
 export class CoursesComponent {
-    title = "List of Courses";
-    imageUrl = "http://lorempixel.com/400/200";
-    colSpan = 2;
-    /**
-     *
-     * Instead of having values here weneed to get these courses from the server so we need to call an http endpoint to get the list of courses
-     * https://en.wikipedia.org/wiki/Web_API#Endpoints
-     * 
-     * So we have 2 options:
-     * 1- add the logic for calling http service in the component, but
-     *  1.1 - we will be having problems with unit tests
-     *  1.2 - if this info is needed in other places code with be repetead
-     *  1.3 - component should not include any logic other than the presentation logic
-     * 2- Services
-     *  
-     */
-
-    //courses = ["course1", "course2", "course3"];
-
-    //Logic for calling an HTTP service
-    courses;
-    constructor(service: CoursesService){
-        /**
-         * with this we are making the same mistake of coupled this course component with the service
-         * because we are creating an instance of the class.
-         * problems:
-         * units teste
-         * add more parameters in the contruct we need them to update the construtor
-         * 
-         */
-        //let service = new CoursesService();//so we delete this line and add a dependecy in the contructor
-        /**
-         * 
-         * we will add a parameter service typeof coursesServices, 
-         * we create an instance of coursesService and it will them passes to the construtor and get the dependecies
-         * so if the constructor change with more parameters, theres no problem
-         * but now we need to register these dependencies in our model
-         * 
-         */
-        this.courses = service.getCourses();
-    }
+    //isActive = false; //it will not show the class
+    isActive = true; //it will show the class
 
 }
