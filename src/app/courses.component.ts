@@ -11,7 +11,23 @@ import { Component } from "@angular/core";
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
     template: `
+    
+        <!-- 
+            First choice is "the best"
+            is more clean and easy to read
+        -->
         <h2>{{ title }}</h2>
+        <!-- or -->
+        <h2 [textContent]="title"></h2>
+
+        <!-- 
+            Second choice is "the best"
+            is more clean and easy to read
+        -->
+        <img src="{{ imageUrl }}" />
+        <!-- or -->
+        <img [src]="imageUrl" />
+
         <ul>
             <li *ngFor="let course of courses">
                 {{ course }}
@@ -21,6 +37,7 @@ import { Component } from "@angular/core";
 })
 export class CoursesComponent {
     title = "List of Courses";
+    imageUrl = "http://lorempixel.com/400/200";
     /**
      *
      * Instead of having values here weneed to get these courses from the server so we need to call an http endpoint to get the list of courses
