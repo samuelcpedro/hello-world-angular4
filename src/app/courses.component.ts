@@ -11,7 +11,14 @@ import { Component } from "@angular/core";
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
     template: `
-        <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    <h3>Class Binding</h3>
+    <p>
+    <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    </p>
+    <h3>Style Binding</h3>
+    <p>
+    <button class="btn btn-primary" [style.backgroundColor]="isActive ? 'blue' : 'red'">Save</button>
+    </p>
     `
     //[class.active]="isActive" property binding syntaxe
     //class -> class property
