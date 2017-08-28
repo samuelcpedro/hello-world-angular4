@@ -11,22 +11,20 @@ import { Component } from "@angular/core";
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
     template: `
-    <h3>Class Binding</h3>
-	<p (click)="onParagrahClicked()">
-		<button (click)="onSave($event)">Save</button>
-	</p>
+		<input (keyup)="onKeyUp($event)" />
+		<!-- better way -->
+		<input (keyup.enter)="onKeyUp2()" />
 	`
 	//(click) --> event
 	//"onSave()" --> calls the method
 })
 
 export class CoursesComponent {
-	onSave($event){
-		$event.stopPropogation();//to stop bubling
-		console.log("Button was clicked", $event); //we will get all the DOM event objects
+	onKeyUp($event){
+		if($event.keyCode === 13) console.log("ENTER was pressed");
 	}
-
-	onParagrahClicked(){
-		console.log("P was clicked");
+	
+	onKeyUp2(){
+		console.log("ENTER was pressed");
 	}
 }
