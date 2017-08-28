@@ -13,7 +13,7 @@ export class AppComponent {
 
 
   //if we wanted to pass a single value
-  onFavoriteChanged(eventArgs){
+  onFavoriteChanged(eventArgs:{ newValue: boolean }){
     console.log("Favorite changed: ", eventArgs);
     //it will return in the console
     //Favorite changed:  {newValue: false}
