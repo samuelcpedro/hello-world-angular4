@@ -1,13 +1,3 @@
 <h1>Angular</h1>
-<courses></courses>
-
-<!--
-	what will be generated
-	<app-root _nghost-c0="" ng-version="4.3.6">
-		<h1 _ngcontent-c0="">Angular</h1>
-		<courses _ngcontent-c0="">
-			<h2>Courses</h2>
-		</courses>
-	</app-root>
-
--->
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()">
+</favorite>
