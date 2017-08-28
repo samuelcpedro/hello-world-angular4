@@ -1,3 +1,4 @@
+import { SummaryPipe } from './summary.pipe'; //it will automatically imports the summary pipe here
 import { CoursesService } from './courses.service';
 import { CoursesComponent } from './courses.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,8 @@ import { CourseComponent } from './course/course.component';
   declarations: [
     AppComponent,
     CourseComponent,
-    CoursesComponent //to auto import this component install Auto Import Extensions on vscode
+    CoursesComponent, //to auto import this component install Auto Import Extensions on vscode
+    SummaryPipe
   ],
   imports: [
     BrowserModule,
