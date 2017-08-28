@@ -10,46 +10,36 @@ import { Component } from "@angular/core";
 @Component({
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
-    template: `
-		<!--
-			<input #email (keyup.enter)="onKeyUp(email.value)" />
-			#email is a template variable
-		
-			More clean but we cant change and pass the value if we change in the textbox because,
-			with property binding the direction of binding is from the component to the view
-			
-			<input [value]="email" (keyup.enter)="onKeyUp()" />
-
-			so we can modify this expression "onKeyUp()"
-
-			<input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
-		
-			And now we got a 2 way binding, but there is a better way...
-			two way binding syntaxe --> [()] (this is, banana in the box)
-
-			<input [(ngModel)]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
-
-			ngModel -> this builtin directive is used for implementing a 2 way binding
-
-			<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
-
-			but to use this directive we need to add FormsModule to imports in app.modules.ts file
-
-			imports: [
-			  BrowserModule,
-			  FormsModule
-			],
-
-		-->
-		<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
-
+	template: `
+	{{ course.title }} <br/>
+	{{ course.title | uppercase }} <br/>
+	{{ course.title | uppercase | lowercase}} <br/>
+	{{ course.students }} <br/>
+	{{ course.students | number }} <br/>
+	{{ course.rating | number }} <br/>
+	{{ course.rating | number:'1.2-2' }} <br/>
+	{{ course.rating | number:'1.1-3' }} <br/>
+	{{ course.rating | number:'1.2-3' }} <br/>
+	{{ course.rating | number:'1.2-4' }} <br/>
+	{{ course.rating | number:'2.1-1' }} <br/>
+	{{ course.price }} <br/>
+	{{ course.price | currency }} <br/>
+	{{ course.price | currency:'AUD' }} <br/>
+	{{ course.price | currency:'AUD':true }} <br/>
+	{{ course.price | currency:'AUD':true:'3.2-2' }} <br/>
+	{{ course.releaseDate }} <br/>
+	{{ course.releaseDate | date:'shortDate' }} <br/>
+	</br>
+	https://angular.io/api/common/DatePipe
 	`
 })
 
 export class CoursesComponent {
-	email = "me@example.com";
-
-	onKeyUp(){
-		console.log(this.email);
+	course = {
+		title: "The Complete Angular Course",
+		rating: 4.9745,
+		students: 30123,
+		price: 190.95,
+		releaseDate: new Date(2016, 3, 1)
 	}
 }
