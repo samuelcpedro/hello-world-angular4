@@ -1,6 +1,7 @@
 import { CoursesService } from './courses.service';
 import { CoursesComponent } from './courses.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { CourseComponent } from './course/course.component';
     CoursesComponent //to auto import this component install Auto Import Extensions on vscode
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     CoursesService
