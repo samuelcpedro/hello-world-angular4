@@ -11,20 +11,17 @@ import { Component } from "@angular/core";
     //property selector is a css selector that identifies this component in a template
     selector: 'courses', // to refence a element <courses> use "courses" or element <div class="courses"> use ".courses" or element <div id ="courses"> use "#courses"
     template: `
-		<input (keyup)="onKeyUp($event)" />
-		<!-- better way -->
-		<input (keyup.enter)="onKeyUp2()" />
+		<input (keyup.enter)="onKeyUp($event)" />
+		<!-- OR -->
+		<input #email (keyup.enter)="onKeyUp(email.value)" />
+		<!-- #email is a template variable -->
 	`
 	//(click) --> event
 	//"onSave()" --> calls the method
 })
 
 export class CoursesComponent {
-	onKeyUp($event){
-		if($event.keyCode === 13) console.log("ENTER was pressed");
-	}
-	
-	onKeyUp2(){
-		console.log("ENTER was pressed");
+	onKeyUp(email){
+		console.log(email);
 	}
 }
