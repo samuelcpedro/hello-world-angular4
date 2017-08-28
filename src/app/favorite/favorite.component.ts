@@ -18,7 +18,7 @@ export class FavoriteComponent implements OnInit {
 	 * 
 	 */
 
-	 @Output() change = new EventEmitter();
+	 @Output('change') click = new EventEmitter();
 	 
 	constructor() { }
 
@@ -32,7 +32,7 @@ export class FavoriteComponent implements OnInit {
 		//if we wanted to pass a single value
 		//this.change.emit(this.isSelected);
 		//if we wanted to pass a object value
-		this.change.emit({ newValue: this.isSelected });
+		this.click.emit({ newValue: this.isSelected });
 		console.log(this.isSelected);
 	}
 
