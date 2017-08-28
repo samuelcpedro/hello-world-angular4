@@ -10,4 +10,10 @@ export class AppComponent {
     title: "Title",
     isFavorite: true
   }
+
+
+  //if we wanted to pass a single value
+  onFavoriteChanged(isFavorite){
+    console.log("Favorite changed: ", isFavorite);
+  }
 }

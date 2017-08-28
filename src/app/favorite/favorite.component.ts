@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'favorite',
@@ -17,6 +17,9 @@ export class FavoriteComponent implements OnInit {
 	 * So with a alias we would only have to change favorite.component.html, so alias e always a option
 	 * 
 	 */
+
+	 @Output() change = new EventEmitter();
+	 
 	constructor() { }
 
 	ngOnInit() {
@@ -25,6 +28,9 @@ export class FavoriteComponent implements OnInit {
 	onClick(){
 		console.log(this.isSelected);
 		this.isSelected = !this.isSelected;
+		//this.change is your emitter and we use that to raise or publish an event which notify others that something has happened
+		//if we wanted to pass a single value
+		this.change.emit(this.isSelected);	
 		console.log(this.isSelected);
 	}
 
