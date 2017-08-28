@@ -30,7 +30,9 @@ export class FavoriteComponent implements OnInit {
 		this.isSelected = !this.isSelected;
 		//this.change is your emitter and we use that to raise or publish an event which notify others that something has happened
 		//if we wanted to pass a single value
-		this.change.emit(this.isSelected);	
+		//this.change.emit(this.isSelected);
+		//if we wanted to pass a object value
+		this.change.emit({ newValue: this.isSelected });
 		console.log(this.isSelected);
 	}
 
