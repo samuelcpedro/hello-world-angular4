@@ -1,18 +1,15 @@
 <bootstrap-panel>
-    <div class="heading">
+    <ng-container class="heading">
         <h2>sdgfasdfasdfas</h2>
         <p>asdfasdf</p>
         <span>Heading</span>
-    </div>
+    </ng-container>
     <div class="body">
         <h2>Body</h2>
         <p>Some content here...</p>
     </div>
 </bootstrap-panel>
 <!--
-	One way to set heading and the body is use property binding ([body]="body"), 
-	so we can define input properties like heading and body
-	and set them to the body property of app component.
-	But i dont want to go to our component and define a property called body 
-	and there add my markup. I want to do it here.
+	If dont want the adicional div but only the info 
+	in the container, we use ng-container
 -->
