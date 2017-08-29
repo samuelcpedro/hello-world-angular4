@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { StarComponent } from './star/star.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { PanelComponent } from './panel/panel.component';
 //this class is decorated by another function NgModule
 @NgModule({
   //where we add all the components that are part of this module
@@ -16,7 +17,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
     AppComponent,
     CourseComponent,
     CoursesComponent, //to auto import this component install Auto Import Extensions on vscode
-    SummaryPipe, StarComponent, FavoriteComponent
+    SummaryPipe, StarComponent, FavoriteComponent, PanelComponent
   ],
   imports: [
     BrowserModule,
